@@ -1,5 +1,6 @@
 package com.proyecto.supermarketapi.persitence.entity;
 
+import com.proyecto.supermarketapi.persitence.audit.AuditableEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,8 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@EntityListeners(AuditableEntity.class)
 @Table(name = "category")
-public class CategoryEntity {
+public class CategoryEntity extends AuditableEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_category" , nullable = false)
